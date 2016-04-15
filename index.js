@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var css = require('./styles.css');
 
 var PandaFan = React.createClass({
   render: function() {
