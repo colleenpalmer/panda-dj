@@ -55,11 +55,7 @@
 	  displayName: 'PandaFan',
 	
 	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      'pandaFan'
-	    );
+	    return React.createElement('div', { className: 'pandaFan' });
 	  }
 	});
 	
@@ -19783,7 +19779,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/* Put stuff here for styles and what not */\n", ""]);
+	exports.push([module.id, "/* Put stuff here for styles and what not */\n@-webkit-keyframes playPandaFan {\n   from { background-position:    0px; }\n     to { background-position: -400px; }\n}\n@keyframes playPandaFan {\n   from { background-position:    0px; }\n     to { background-position: -400px; }\n}\n.pandaFan {\n  border: 1px solid blue;\n  width: 100px;\n  height: 100px;\n  background: url(" + __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./images/pandabob.png\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())) + ");\n  -webkit-animation: playPandaFan 1s steps(4) infinite;\n          animation: playPandaFan 1s steps(4) infinite;\n}\n\n\n", ""]);
 	
 	// exports
 

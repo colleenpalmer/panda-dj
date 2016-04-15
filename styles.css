@@ -1,1 +1,34 @@
-/* Put stuff here for styles and what not */
+/*Stuff for PandaFan*/
+@keyframes playPandaFan {
+   from { background-position:  0 0; }
+     to { background-position: -400px 0; }
+}
+.pandaSprite {background: url('https://dl.dropboxusercontent.com/u/26366806/pandabop/pandasprite.png');}
+
+.superFan {
+  position: relative;
+  .pandaCape,
+  .pandaFan {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.pandaFan {
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  background-position: 0 0;
+  animation: playPandaFan 1s steps(4) infinite;
+}
+.pandaCape {
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+  background-position: 200px 0 ;
+}
+
+/*Stuff for PandaDj*/
+.pandaDj {
+
+}

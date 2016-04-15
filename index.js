@@ -3,11 +3,30 @@ var ReactDOM = require('react-dom');
 
 var css = require('./styles.css');
 
+var PandaCape = React.createClass({
+  render: function() {
+    return (
+      <div className='pandaSprite pandaCape'>
+      </div>
+    );
+  }
+});
+
 var PandaFan = React.createClass({
   render: function() {
     return (
-      <div>
-        pandaFan
+      <div className='pandaSprite pandaFan'>
+      </div>
+    );
+  }
+});
+
+var PandaSuperFan = React.createClass({
+  render: function() {
+    return (
+      <div className="superFan">
+        <PandaCape />
+        <PandaFan />
       </div>
     );
   }
@@ -16,25 +35,27 @@ var PandaFan = React.createClass({
 var PandaDj = React.createClass({
   render: function() {
     return (
-      <div className=''>
-        pandadj
+      <div className='pandaDj'>
+        Put stuffs here for panda dj
       </div>
     );
   }
 });
 
-var PandaDjAll = React.createClass({
+var PandaSandbox = React.createClass({
   render: function() {
     return (
       <div>
-        <PandaDj />
         <PandaFan />
+        <PandaCape />
+        <PandaDj />
+        <PandaSuperFan />
       </div>
     );
   }
 });
 
 ReactDOM.render(
-  <PandaDjAll/>,
+  <PandaSandbox/>,
   document.getElementById('pandj')
 );
