@@ -51,11 +51,48 @@
 	
 	var css = __webpack_require__(159);
 	
+	var PandaCape = React.createClass({
+	  displayName: 'PandaCape',
+	
+	  render: function render() {
+	    return React.createElement('div', { className: 'pandaSprite pandaCape' });
+	  }
+	});
+	
+	var PandaCapeAnimate = React.createClass({
+	  displayName: 'PandaCapeAnimate',
+	
+	  render: function render() {
+	    return React.createElement('div', { className: 'pandaSprite pandaCapeAnimate' });
+	  }
+	});
+	
 	var PandaFan = React.createClass({
 	  displayName: 'PandaFan',
 	
 	  render: function render() {
-	    return React.createElement('div', { className: 'pandaFan' });
+	    return React.createElement('div', { className: 'pandaSprite pandaFan' });
+	  }
+	});
+	
+	var PandaFanLove = React.createClass({
+	  displayName: 'PandaFanLove',
+	
+	  render: function render() {
+	    return React.createElement('div', { className: 'pandaSprite pandaFan pandaFanLove' });
+	  }
+	});
+	
+	var PandaSuperFan = React.createClass({
+	  displayName: 'PandaSuperFan',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'superFan' },
+	      React.createElement(PandaCapeAnimate, null),
+	      React.createElement(PandaFanLove, null)
+	    );
 	  }
 	});
 	
@@ -65,26 +102,29 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { className: '' },
-	      'pandadj'
+	      { className: 'pandaDj' },
+	      'Put stuffs here for panda dj'
 	    );
 	  }
 	});
 	
-	var PandaDjAll = React.createClass({
-	  displayName: 'PandaDjAll',
+	var PandaSandbox = React.createClass({
+	  displayName: 'PandaSandbox',
 	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
-	      React.createElement(PandaDj, null),
-	      React.createElement(PandaFan, null)
+	      { className: 'sandbox' },
+	      React.createElement(PandaFan, null),
+	      React.createElement(PandaFanLove, null),
+	      React.createElement(PandaCape, null),
+	      React.createElement(PandaCapeAnimate, null),
+	      React.createElement(PandaSuperFan, null)
 	    );
 	  }
 	});
 	
-	ReactDOM.render(React.createElement(PandaDjAll, null), document.getElementById('pandj'));
+	ReactDOM.render(React.createElement(PandaSandbox, null), document.getElementById('pandj'));
 
 /***/ },
 /* 1 */
@@ -19779,7 +19819,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/* Put stuff here for styles and what not */\n@-webkit-keyframes playPandaFan {\n   from { background-position:    0px; }\n     to { background-position: -400px; }\n}\n@keyframes playPandaFan {\n   from { background-position:    0px; }\n     to { background-position: -400px; }\n}\n.pandaFan {\n  border: 1px solid blue;\n  width: 100px;\n  height: 100px;\n  background: url(" + __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./images/pandabob.png\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())) + ");\n  -webkit-animation: playPandaFan 1s steps(4) infinite;\n          animation: playPandaFan 1s steps(4) infinite;\n}\n\n\n", ""]);
+	exports.push([module.id, ".sandbox {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-align-content: center;\n      -ms-flex-line-pack: center;\n          align-content: center;\n}\n\n/*Stuff for PandaFan*/\n@-webkit-keyframes playPandaFan {\n   from { background-position:  0 0; }\n     to { background-position: -400px 0; }\n}\n@keyframes playPandaFan {\n   from { background-position:  0 0; }\n     to { background-position: -400px 0; }\n}\n@-webkit-keyframes playCape {\n   from { background-position:  -400px 0; }\n     to { background-position: -600px 0; }\n}\n@keyframes playCape {\n   from { background-position:  -400px 0; }\n     to { background-position: -600px 0; }\n}\n.pandaSprite {background: url('https://dl.dropboxusercontent.com/u/26366806/pandabop/pandasprite.png');}\n\n.superFan {\n  position: relative;\n}\n\n.superFan > div {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.pandaFan {\n  width: 100px;\n  height: 100px;\n  z-index: 1;\n  background-position: 0 0;\n}\n.pandaFanLove {\n  width: 100px;\n  height: 100px;\n  z-index: 1;\n  background-position: 0 0;\n  -webkit-animation: playPandaFan 1s steps(4) infinite;\n          animation: playPandaFan 1s steps(4) infinite;\n}\n.pandaCape {\n  width: 100px;\n  height: 100px;\n  z-index: 2;\n  background-position: -400px 0 ;\n}\n.pandaCapeAnimate {\n  width: 100px;\n  height: 100px;\n  z-index: 2;\n  background-position: -400px 0 ;\n  -webkit-animation: playCape 1s steps(2) infinite;\n          animation: playCape 1s steps(2) infinite;\n}\n\n/*Stuff for PandaDj*/\n.pandaDj {\n\n}\n", ""]);
 	
 	// exports
 

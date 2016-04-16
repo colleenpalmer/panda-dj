@@ -1,34 +1,54 @@
+/* Todo:
+** get width/height passed down better, more dry
+
+*/
+.sandbox {
+  display: flex;
+  align-content: center;
+}
+.spriteAlign {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.spriteContent {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /*Stuff for PandaFan*/
-@keyframes playPandaFan {
+@keyframes PandaFan {
    from { background-position:  0 0; }
      to { background-position: -400px 0; }
 }
-.pandaSprite {background: url('https://dl.dropboxusercontent.com/u/26366806/pandabop/pandasprite.png');}
-
-.superFan {
-  position: relative;
-  .pandaCape,
-  .pandaFan {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+@keyframes PandaDj {
+   from { background-position:   0 -500px; }
+     to { background-position:  -200px -500px; }
 }
+
+.pandaSprite {
+  background: url('pandastage.png');
+}
+
 .pandaFan {
-  width: 100px;
-  height: 100px;
+  width: inherit;
+  height: inherit;
   z-index: 1;
   background-position: 0 0;
-  animation: playPandaFan 1s steps(4) infinite;
 }
-.pandaCape {
-  width: 100px;
-  height: 100px;
-  z-index: 2;
-  background-position: 200px 0 ;
+.pandaFan--animate {
+  animation: PandaFan 1s steps(4) infinite;
 }
 
 /*Stuff for PandaDj*/
 .pandaDj {
-
+  width: inherit;
+  height: inherit;
+  background-position: 0 -500px;
+}
+.pandaDj--animate {
+  animation: PandaDj 1s steps(2) infinite;
 }

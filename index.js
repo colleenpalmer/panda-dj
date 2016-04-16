@@ -1,42 +1,58 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var classNames = require('classnames');
 
 var css = require('./styles.css');
 
-var PandaCape = React.createClass({
+var PandaDj = React.createClass({
+  propTypes: {
+      animate: React.PropTypes.bool
+  },
+  getDefaultProps() {
+      return {
+          animate: false
+      };
+  },
   render: function() {
+    var animateClass = classNames({
+      'pandaSprite pandaDj': true,
+      'pandaDj--animate': this.props.animate
+    });
     return (
-      <div className='pandaSprite pandaCape'>
+      <div className={animateClass}>
       </div>
     );
   }
 });
 
 var PandaFan = React.createClass({
+  propTypes: {
+      animate: React.PropTypes.bool
+  },
+  getDefaultProps() {
+      return {
+          animate: false
+      };
+  },
   render: function() {
+    var animateClass = classNames({
+      'pandaSprite pandaFan': true,
+      'pandaFan--animate': this.props.animate
+    });
     return (
-      <div className='pandaSprite pandaFan'>
+      <div className={animateClass}>
       </div>
     );
   }
 });
 
-var PandaSuperFan = React.createClass({
+var SpriteAlign = React.createClass({
   render: function() {
     return (
-      <div className="superFan">
-        <PandaCape />
-        <PandaFan />
-      </div>
-    );
-  }
-});
-
-var PandaDj = React.createClass({
-  render: function() {
-    return (
-      <div className='pandaDj'>
-        Put stuffs here for panda dj
+      <div className='spriteAlign'>
+        <div className='spriteContent'>
+          {this.props.children}
+        </div>
       </div>
     );
   }
@@ -45,11 +61,19 @@ var PandaDj = React.createClass({
 var PandaSandbox = React.createClass({
   render: function() {
     return (
-      <div>
-        <PandaFan />
-        <PandaCape />
-        <PandaDj />
-        <PandaSuperFan />
+      <div className="sandbox">
+        <SpriteAlign>
+          <PandaDj/>
+        </SpriteAlign>
+        <SpriteAlign>
+          <PandaDj animate={true} />
+        </SpriteAlign>
+        <SpriteAlign>
+          <PandaFan />
+        </SpriteAlign>
+        <SpriteAlign>
+          <PandaFan animate={true} />
+        </SpriteAlign>
       </div>
     );
   }
