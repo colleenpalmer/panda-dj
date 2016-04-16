@@ -4,8 +4,15 @@
 */
 .sandbox {
   display: flex;
+  flex-direction: column;
+}
+.sandbox > div {
+  display: flex;
   align-content: center;
 }
+
+/**/
+
 .spriteAlign {
   position: relative;
   width: 100px;
@@ -51,4 +58,38 @@
 }
 .pandaDj--animate {
   animation: PandaDj 1s steps(2) infinite;
+}
+.pandaDj--position {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.stage {
+  width: 100px;
+  height: 200px;
+  z-index: 1;
+  background-position: -200px -100px;
+}
+.stage--left {
+  background-position: -100px -100px;
+}
+.stage--right {
+  background-position: -600px -100px;
+}
+
+.spaceFiller {
+  /*This is so hacky and cheating*/
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  background-position: -700px -500px;
+}
+.stageScaffold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-position: -100px -300px;
 }
