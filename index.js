@@ -4,16 +4,6 @@ var classNames = require('classnames');
 
 var css = require('./styles.css');
 
-
-var SpaceFiller = React.createClass({
-  render: function() {
-    return (
-      <div className='pandaSprite spaceFiller'>
-      </div>
-    );
-  }
-});
-
 var StageScaffold = React.createClass({
   render: function() {
     return (
@@ -63,11 +53,20 @@ var PandaDj = React.createClass({
   render: function() {
     var animateClass = classNames({
       'pandaSprite pandaDj': true,
-      'pandaDj--animate': this.props.animate,
-      'pandaDj--position': this.props.absolute
+      'pandaDj--animate': this.props.animate
     });
     return (
       <div className={animateClass}>
+      </div>
+    );
+  }
+});
+
+/* Stickers!! */
+var StickerGit = React.createClass({
+  render: function() {
+    return (
+      <div className='pandaSprite StickerGit'>
       </div>
     );
   }
@@ -94,12 +93,23 @@ var PandaFan = React.createClass({
   }
 });
 
-var SpriteAlign = React.createClass({
+/* This is hacky and shouldn't be used in anything but sandbox */
+/* It's so we can space things out to build a stage, etc */
+var EmptySprite = React.createClass({
   render: function() {
     return (
-      <div className='spriteAlign'>
-        <div className='spriteContent'>
-          {this.props.children}
+      <div className='pandaSprite EmptySprite'>
+      </div>
+    );
+  }
+});
+
+var Entity = React.createClass({
+  render: function() {
+    return (
+      <div className='Entity'>
+        <div className='EntityContent'>
+        {this.props.children}
         </div>
       </div>
     );
@@ -111,68 +121,23 @@ var PandaSandbox = React.createClass({
     return (
       <div className="sandbox">
         <div>
-          <SpriteAlign>
+          <Entity>
             <PandaDj/>
-          </SpriteAlign>
-          <SpriteAlign>
-            <PandaDj animate={true} />
-          </SpriteAlign>
-          <SpriteAlign>
+            <StickerGit/>
+          </Entity>
+          <Entity>
+            <PandaDj animate={true}/>
+          </Entity>
+          <Entity>
+            <PandaDj animate={true}/>
+            <StickerGit/>
+          </Entity>
+          <Entity>
             <PandaFan />
-          </SpriteAlign>
-          <SpriteAlign>
+          </Entity>
+          <Entity>
             <PandaFan animate={true} />
-          </SpriteAlign>
-        </div>
-        <div><SpaceFiller /></div>
-        <div>
-          <SpaceFiller />
-          <SpriteAlign>
-            <StageScaffold />
-          </SpriteAlign>
-          <SpaceFiller />
-          <SpaceFiller />
-          <SpaceFiller />
-          <SpaceFiller />
-          <SpaceFiller />
-          <SpriteAlign>
-            <StageScaffold />
-          </SpriteAlign>
-        </div>
-        <div>
-          <StageSide stageLeft={true}/>
-          <SpriteAlign>
-            <StageScaffold />
-            <StageSide />
-          </SpriteAlign>
-          <StageSide />
-          <SpriteAlign>
-            <PandaDj absolute={true} />
-            <StageSide />
-          </SpriteAlign>
-          <SpriteAlign>
-            <PandaDj absolute={true} />
-            <StageSide />
-          </SpriteAlign>
-          <SpriteAlign>
-            <PandaDj absolute={true} animate={true} />
-            <StageSide />
-          </SpriteAlign>
-          <StageSide />
-          <SpriteAlign>
-            <StageScaffold />
-            <StageSide />
-          </SpriteAlign>
-          <StageSide stageRight={true}/>
-
-        </div>
-        <div>
-          <SpaceFiller />
-          <SpaceFiller />
-          <SpaceFiller />
-          <SpriteAlign>
-            <PandaFan animate={true}/>
-          </SpriteAlign>
+          </Entity>
         </div>
       </div>
     );
