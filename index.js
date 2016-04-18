@@ -4,16 +4,7 @@ var classNames = require('classnames');
 
 var css = require('./styles.css');
 
-var StageScaffold = React.createClass({
-  render: function() {
-    return (
-      <div className='pandaSprite stageScaffold'>
-      </div>
-    );
-  }
-});
-
-var StageSide = React.createClass({
+var Stage = React.createClass({
   propTypes: {
       stageLeft: React.PropTypes.bool,
       stageRight: React.PropTypes.bool,
@@ -34,6 +25,9 @@ var StageSide = React.createClass({
     });
     return (
       <div className={renderStage}>
+        <div className='StageContent'>
+          {this.props.children}
+        </div>
       </div>
     );
   }
@@ -93,6 +87,27 @@ var PandaFan = React.createClass({
   }
 });
 
+var Speakers = React.createClass({
+  propTypes: {
+      animate: React.PropTypes.bool
+  },
+  getDefaultProps() {
+      return {
+          animate: false
+      };
+  },
+  render: function() {
+    var animateClass = classNames({
+      'pandaSprite speakers': true,
+      'speakers--animate': this.props.animate
+    });
+    return (
+      <div className={animateClass}>
+      </div>
+    );
+  }
+});
+
 /* This is hacky and shouldn't be used in anything but sandbox */
 /* It's so we can space things out to build a stage, etc */
 var EmptySprite = React.createClass({
@@ -121,22 +136,60 @@ var PandaSandbox = React.createClass({
     return (
       <div className="sandbox">
         <div>
-          <Entity>
-            <PandaDj/>
-            <StickerGit/>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+        </div>
+        <div>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+          <EmptySprite/>
+        </div>
+        <div>
+          <Speakers />
+          <Stage stageLeft={true} />
+          <Stage />
+          <Stage>
+            <Entity>
+              <PandaDj animate={true}/>
+            </Entity>
+          </Stage>
+          <Stage>
+            <Entity>
+              <PandaDj animate={true}/>
+            </Entity>
+            <Entity>
+              <PandaFan />
+            </Entity>
+          </Stage>
+          <Stage>
+            <Entity>
+              <PandaDj animate={true}/>
+              <StickerGit/>
+            </Entity>
+            <Entity>
+            <PandaFan animate={true}/>
           </Entity>
-          <Entity>
-            <PandaDj animate={true}/>
-          </Entity>
-          <Entity>
-            <PandaDj animate={true}/>
-            <StickerGit/>
-          </Entity>
+          </Stage>
+          <Stage>
+          </Stage>
+          <Stage stageRight={true} />
+          <Speakers />
+        </div>
+        <div>
+          <EmptySprite/>
+          <EmptySprite/>
           <Entity>
             <PandaFan />
           </Entity>
           <Entity>
-            <PandaFan animate={true} />
+            <PandaFan />
           </Entity>
         </div>
       </div>

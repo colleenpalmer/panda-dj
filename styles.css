@@ -60,36 +60,48 @@ body {background: linear-gradient(to bottom, #23538a 0%,#051933 100%);}
 .pandaDj--animate {
   animation: PandaDj 1s steps(2) infinite;
 }
-
 .StickerGit {
   width: 100px;
   height: 100px;
   background-position: -800px -100px;
 }
 
+/**
+Stage setup
+**/
 .stage {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-position: -800px -700px;
+}
+.StageContent {
   width: inherit;
   height: inherit;
-  background-position: -900px -900px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.StageContent > div {
+  bottom: 80px;
 }
 .stage--left {
-  background-position: -100px -100px;
+  background-position: -700px -700px;
 }
 .stage--right {
-  background-position: -600px -100px;
+  background-position: -900px -700px;
 }
 
-.spaceFiller {
+.speakers {
+  width: 100px;
+  height: 200px;
+  background-position: -800px -800px;
+}
+
+.EmptySprite {
   /*This is so hacky and cheating*/
   width: 100px;
   height: 100px;
   background-position: -700px -500px;
 }
-.stageScaffold {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  background-position: -100px -300px;
-}
+
